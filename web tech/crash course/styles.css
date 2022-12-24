@@ -1,0 +1,100 @@
+.a {
+    color:orange;
+}
+.b {
+    color:green;
+}
+#c {
+    color:magenta;
+}
+
+.orange {
+    background-color: orange;
+    text-align: center;
+    line-height: 2;
+    letter-spacing: 2px;
+    word-spacing: 3px; 
+}
+.yellow {
+    background-color: yellow;
+}
+.font-styles{
+    font-family:Verdana, Geneva ;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 34px;
+}
+
+ul{
+    list-style:none;
+    margin:0;
+    padding: 0;
+}
+
+.boxmodel{
+    border: 1px solid red;
+    height: 50px;
+    width: 300px;
+    padding: 20px;
+    margin: 20px;
+}
+
+h2 {
+    color: red;
+}
+h2{
+    color: blue;
+}
+.sub{
+    color: bluel;
+}
+#haha{
+    color:orange;
+}
+h3 {
+    color: red !important;
+}
+
+.inheritence {
+    color: orange;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px  ;
+}
+
+th, td{
+    border-bottom: 1px solid gray;
+    padding: 5px;
+}
+table{
+    border-collapse:collapse;
+    width:60%
+}
+
+td{
+    text-align: center;
+    
+}
+
+.s1{
+    border: 1px solid red;
+    display: inline;
+}
+.s2{
+    border: 1px solid blue;
+    display: none;
+}
+
+.p1 {
+    border:1px solid red;
+    position: relative;
+    top: 10px;
+    left: 50px;
+
+}
+.p2 {
+    border:1px solid blue;
+    position:absolute;
+    bottom: 0px;
+    right: 0px;
+}
