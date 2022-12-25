@@ -1,7 +1,7 @@
 ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 10px;
     overflow: hidden;
   }
   
@@ -9,11 +9,13 @@ ul {
     float: left;
     width: 25%;
     text-align: center;
+    
   }
   
   li a {
     display: block;
     padding: 8px;
+    
     background-color: rgba(155, 25, 140, 0.617);
     
   }
@@ -103,4 +105,11 @@ pre{
 
 .awards{
     padding: 5px;
+}
+
+.hobby {
+    padding: 20px;
+    margin: 20px;
+    font-size: large;
+    line-height: 1.6;
 }
