@@ -1,0 +1,106 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  li {
+    float: left;
+    width: 25%;
+    text-align: center;
+  }
+  
+  li a {
+    display: block;
+    padding: 8px;
+    background-color: rgba(155, 25, 140, 0.617);
+    
+  }
+
+  a {
+    color: black;
+}
+a:link {
+    text-decoration: none;
+    background-color: rgba(108, 16, 97, 0.617);
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:active {
+    text-decoration: none;
+    background-color: rgba(108, 16, 97, 0.617);
+    
+  }
+
+th {
+    border: 1px solid gray;
+    padding: 5px;
+    width: 25%;
+    
+}
+table{
+    border-collapse:collapse;
+    width:100%;
+    
+    
+}
+
+td{
+    text-align: center;  
+}
+
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(78, 7, 70);
+    
+    text-align: center;
+  }
+
+
+.p {
+    background-color: rgb(78, 7, 70);
+    color: white;
+}
+.p1 {
+
+    font-size: large;
+}
+
+.description{
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid gray;
+    
+
+}
+
+.edu {
+
+    height: 500px;
+    width: 100%;
+    padding: 20px;
+    margin: 20px;
+    font-size: large;
+    line-height: 1.6;
+}
+
+pre{
+    text-align: left;
+    font-size: 15px;
+}
+
+.awards{
+    padding: 5px;
+}
