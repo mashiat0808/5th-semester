@@ -113,3 +113,19 @@ pre{
     font-size: large;
     line-height: 1.6;
 }
+
+p {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1 {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h2 {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+ li{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ td{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
