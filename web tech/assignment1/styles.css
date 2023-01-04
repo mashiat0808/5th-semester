@@ -5,51 +5,28 @@ ul {
     overflow: hidden;
   }
   .buttons { 
-    width: 100%;
+    width: 60%;
     table-layout: fixed;
     border-collapse: collapse;
     background-color: rgba(155, 25, 140, 0.617);
     border: 1px solid rgba(71, 3, 63, 0.914);
     color:rgba(155, 25, 140, 0.617);
     cursor:pointer;
-    padding: 2px;
-   
+    padding: 7px;
+    margin-top: 10%;
+   margin-left: 20%;
     
  
   }
 
-.one
-  {
-      text-align: center;
-      font-size: 30px;
-      padding-left: 12%;
-      
-      padding-top:10px ;
-      padding: 8%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: auto;
-      width:30%;
-      float: left;  
-      padding-right: 25%;
-  }
+.socials{
+  border:1px solid rgba(79, 2, 102, 0.65);
+}
 
-  .two{
-   
-      text-align: right;
-      font-size: 30px;
-      
-      padding: 50px;
-      display: flex;
-      align-items: right;
-      justify-content: right;
-      height: auto;
-      width:30%;
-      float: left;  
- 
+.socials:hover{
+  background-color: rgba(155, 25, 140, 0.9);
+}
 
-  }
 
 
   li {
@@ -111,7 +88,7 @@ td{
 
 
   .footer {
-    position: fixed;
+    
     left: 0;
     bottom: 0;
     width: 100%;
@@ -161,7 +138,7 @@ pre{
     padding: 20px;
     margin: 20px;
     font-size: large;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 p {
