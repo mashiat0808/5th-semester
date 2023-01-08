@@ -1,0 +1,26 @@
+Fizzbuzz code smells:
+
+Issues addressed:
+ 1. Replacing hard coded numbers in the class with constants for readability and maintainability. (magic number code smell)
+ 2. Removing the unnecessary else statement. (dead code smell)
+ 3. Improving the variable names for better readability. (poor variable name code smell)
+ 4. Adding error handling for the case when number is less than or equal to 0. (error handling code smell (unsure))
+
+
+Plaintext to HTML converter code smells:
+
+1. Replacing hard coded values with constants for readability and maintainability.(magic number code smell)
+2. Improving the variable names for better readability.(poor variable name code smell)
+3. Adding error handling for the case when the file cannot be read or is not found.(error handling code smell (unsure))
+4. Diving the basicHtmlEncode method in two methods. The new basicHtmlEncode method now only contains the logic for creating the final HTML string from the encoded lines.
+The logic for encoding the individual characters has been moved to the new encodeCharacters method. (long method code smell )
+5. Removing unnecessary comments (Comment smell)
+
+TriviaGame code smells:
+1. Improving the variable names for better readability. Renamed roll method (rollDice), parameter(dice), addPlayer, purses.(poor variable name code smell)
+2. Extract method rollDice to method changeLocationAndAskQuestion.(poor variable name code smell)
+3. Unnecessary and duplicate method rockquestion, howManyPlayers are removed, current category. (dead code smell)
+4. wasCorrectlyAnswered() method was extracted to addPointsAndReturnWinner() method(long method smell )
+5. Dividing Trivia game into questions, player and triviagame classes. (long class code smell)
+7. Removed primitive types.(primitive obsession)
+8. Made new function nextPlayerTurn to iterate players and reset iterator.(divergent change)
