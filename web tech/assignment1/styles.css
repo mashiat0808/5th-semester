@@ -4,7 +4,31 @@ ul {
     padding: 10px;
     overflow: hidden;
   }
-  
+  .buttons { 
+    width: 60%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: rgba(155, 25, 140, 0.617);
+    border: 1px solid rgba(71, 3, 63, 0.914);
+    color:rgba(155, 25, 140, 0.617);
+    cursor:pointer;
+    padding: 7px;
+    margin-top: 10%;
+   margin-left: 20%;
+    
+ 
+  }
+
+.socials{
+  border:1px solid rgba(79, 2, 102, 0.65);
+}
+
+.socials:hover{
+  background-color: rgba(155, 25, 140, 0.9);
+}
+
+
+
   li {
     float: left;
     width: 25%;
@@ -20,12 +44,15 @@ ul {
     
   }
 
+
+
+
   a {
     color: black;
 }
 a:link {
     text-decoration: none;
-    background-color: rgba(108, 16, 97, 0.617);
+    
   }
   
   a:visited {
@@ -61,7 +88,7 @@ td{
 
 
   .footer {
-    position: fixed;
+    
     left: 0;
     bottom: 0;
     width: 100%;
@@ -111,7 +138,7 @@ pre{
     padding: 20px;
     margin: 20px;
     font-size: large;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 p {
