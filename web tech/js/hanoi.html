@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <title>Hanoi</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+
+        .boxes {
+            display: flex;
+            align-items: center;
+        }
+
+        .flex-container {
+            border: 1px solid;
+            width: 33%;
+            height: 180px;
+            float: left;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .btn {
+            width: 100%;
+            padding-top: 100px;
+            border: 0px !important;
+        }
+
+        .btn button {
+            background-color: rgb(36, 0, 80);
+            color: white;
+            width: 10%;
+        }
+
+        p {
+            border: 1px solid;
+            border-radius: 80px;
+            background-color: azure;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+       
+        <div class="boxes">
+            <div class="flex-container box1">
+                <p id="p1">1</p>
+                <p id="p2">2</p>
+                <p id="p3">3</p>
+                <p id="p4">4</p>
+            </div>
+
+            <div class="flex-container box2">
+            </div>
+
+            <div class="flex-container box3">
+            </div>
+        </div>
+
+        <div class="btn">
+            <button onClick="move(1,2)">1->2</button>
+            <button onClick="move(1,3)">1->3</button>
+            <button onClick="move(2,1)">2->1</button>
+            <button onClick="move(2,3)">2->3</button>
+            <button onClick="move(3,1)">3->1</button>
+            <button onClick="move(3,2)">3->2</button>
+            <button onClick="check()">Check</button>
+            <button onClick="reset()">Reset</button>
+        </div>
+
+        <div class="result">
+
+        </div>
+
+    </div>
+    <script>
+        function move(from, to) {
+            let bx1 = document.getElementsByClassName("box" + from);
+            let para = bx1[0].firstElementChild;
+            if (para != null) {
+                para.remove();
+
+                let bx2 = document.getElementsByClassName("box" + to);
+                bx2[0].appendChild(para);
+            }
+            else {
+                alert("Cannot move empty field");
+            }
+
+
+        }
+        function check() {
+            let allPresent = false;
+            var bx = document.getElementsByClassName("flex-container");
+            if (bx[0].childElementCount == 4 || bx[1].childElementCount == 4 || bx[2].childElementCount == 4) {
+                isAllPresent = true;
+            }
+            let isSorted = true;
+            var para = document.getElementsByTagName("p");
+            for (var i = 0; i < para.length - 1; i++) {
+                if (para[i].innerHTML < para[i + 1].innerHTML) {
+                    isSorted = false;
+                    break;
+                }
+            }
+            let div = document.getElementsByClassName("result");
+            while (div[0].firstElementChild) {
+                div[0].firstElementChild.remove();
+            }
+            if (isSorted == true && isAllPresent == true) {
+
+                let winner = document.createElement("h1");
+                winner.innerHTML = "You win!";
+                div[0].appendChild(winner);
+
+            }
+
+            else {
+                let loser = document.createElement("h1");
+                loser.innerHTML = "You lose";
+                div[0].appendChild(loser);
+            }
+        }
+
+        function reset() {
+            let bx = document.getElementsByClassName("flex-container");
+
+            console.log(bx);
+            //remove all
+            for (let i = 0; i < bx.length; i++) {
+                console.log(bx[i]);
+                console.log(bx[i].firstElementChild);
+
+                while (bx[i].firstElementChild) {
+                    if (bx[i].firstElementChild)
+                        bx[i].firstElementChild.remove();
+                }
+            }
+
+            //create an array and randomize
+            let a = [];
+            for (i = 0; i < 4; i++) a[i] = i + 1;
+            shuffle(a);
+
+            console.log(a);
+
+            //add random array to fist box
+            let bx1 = document.getElementsByClassName("box1");
+
+            for (i = 0; i < 4; i++) {
+                let para = document.createElement("p");
+                para.id = "p" + (i + 1);
+                console.log(para.id);
+                para.innerHTML = a[i];
+                bx1[0].appendChild(para);
+            }
+
+        }
+
+        function shuffle(a) {
+            let currentIndex = a.length;
+
+            while (currentIndex != 0) {
+
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+
+                // And swap it with the current element.
+                [a[currentIndex], a[randomIndex]] = [
+                    a[randomIndex], a[currentIndex]];
+            }
+        }
+    </script>
+
+</body>
+
+</html>
