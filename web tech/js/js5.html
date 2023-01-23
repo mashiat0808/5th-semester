@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id ="p1">Programming</p>
+    <button onclick="okay()">Okay</button>
+    <a onmouseover ="mouse_over()" href = "http://www.iit.du.ac.bd">IIT</a>
+    <p id = "p2">Random Text</p>
+    <button ondblclick="double_click()">Click</button>
+    <script>
+    //    let para1=document.getElementById('p1');
+    //    para1.style.backgroundColor='blue';
+    function okay(){
+        alert("okay");
+    }
+    function mouse_over(){
+        console.log("mouse over anchor tag")
+    }
+    function double_click(){
+        let para1=document.getElementById('p2');
+        para1.style.color='green';
+    }
+    </script>
+</body>
+</html>
