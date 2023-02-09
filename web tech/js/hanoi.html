@@ -31,12 +31,15 @@
 
         .flex-container {
             border: 1px solid;
-            width: 33%;
+            width: 300px;
             height: 180px;
             float: left;
             margin-left: auto;
             margin-right: auto;
             text-align: center;
+            padding-top: 5px;
+            display: flex;
+            flex-direction: column-reverse;
         }
 
         .btn {
@@ -46,28 +49,79 @@
         }
 
         .btn button {
-            background-color: rgb(36, 0, 80);
+            background-color: rgb(241, 121, 127);
             color: white;
-            width: 10%;
+            width: 150px;
+            border-radius: 80px;
         }
+
+        .btn button:active {
+            background-color: rgb(85, 10, 13);
+            width: 150px;
+        }
+
+        #check {
+            background-color: rgb(214, 15, 15);
+        }
+
+        #check:active {
+            background-color: rgb(241, 153, 153);
+        }
+
+        #reset {
+            background-color: rgb(98, 224, 25);
+        }
+
+        #reset:active {
+            background-color: rgb(16, 41, 2);
+        }
+
 
         p {
             border: 1px solid;
             border-radius: 80px;
             background-color: azure;
         }
+
+        #p1 {
+            width: 100px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        #p2 {
+            width: 150px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        #p3 {
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        #p4 {
+            width: 250px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-       
+        <h1>Welcome to Tower of hanoi!</h1>
         <div class="boxes">
             <div class="flex-container box1">
                 <p id="p1">1</p>
                 <p id="p2">2</p>
-                <p id="p3">3</p>
                 <p id="p4">4</p>
+                <p id="p3">3</p>
             </div>
 
             <div class="flex-container box2">
@@ -84,10 +138,13 @@
             <button onClick="move(2,3)">2->3</button>
             <button onClick="move(3,1)">3->1</button>
             <button onClick="move(3,2)">3->2</button>
-            <button onClick="check()">Check</button>
-            <button onClick="reset()">Reset</button>
-        </div>
 
+        </div>
+        <br>
+        <div class="btn">
+            <button onClick="check()" id="check">Check Result</button>
+            <button onClick="reset()" id="reset">Start New Game</button>
+        </div>
         <div class="result">
 
         </div>
@@ -96,19 +153,30 @@
     <script>
         function move(from, to) {
             let bx1 = document.getElementsByClassName("box" + from);
-            let para = bx1[0].firstElementChild;
+            let para = bx1[0].lastElementChild;
             if (para != null) {
-                para.remove();
 
                 let bx2 = document.getElementsByClassName("box" + to);
-                bx2[0].appendChild(para);
+                if (bx2[0].lastElementChild != null) {
+                    if (bx2[0].lastElementChild.innerHTML > para.innerHTML) {
+                        para.remove();
+                        bx2[0].append(para);
+                    }
+                    else {
+                        alert("Incorrect move!");
+                    }
+                }
+                else {
+                    para.remove();
+                    bx2[0].append(para);
+                }
             }
             else {
                 alert("Cannot move empty field");
             }
 
-
         }
+
         function check() {
             let allPresent = false;
             var bx = document.getElementsByClassName("flex-container");
@@ -130,14 +198,14 @@
             if (isSorted == true && isAllPresent == true) {
 
                 let winner = document.createElement("h1");
-                winner.innerHTML = "You win!";
+                winner.innerHTML = "You win!!!!!!";
                 div[0].appendChild(winner);
 
             }
 
             else {
                 let loser = document.createElement("h1");
-                loser.innerHTML = "You lose";
+                loser.innerHTML = "You lose :(";
                 div[0].appendChild(loser);
             }
         }
@@ -169,10 +237,17 @@
 
             for (i = 0; i < 4; i++) {
                 let para = document.createElement("p");
-                para.id = "p" + (i + 1);
+                para.id = "p" + a[i];
                 console.log(para.id);
                 para.innerHTML = a[i];
                 bx1[0].appendChild(para);
+            }
+
+            bx1[0].style.paddingTop = "5px";
+
+            let div = document.getElementsByClassName("result");
+            while (div[0].firstElementChild) {
+                div[0].firstElementChild.remove();
             }
 
         }
