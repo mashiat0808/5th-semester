@@ -1,4 +1,16 @@
 <html>
+    <head>
+    <style>
+       .col-md-6{
+            float:left;
+            width:50%;     
+        }
+        img {
+            height: 300px;
+        }
+        </style>
+</head>
+
 <body>
 
 <?php
@@ -15,13 +27,21 @@
             if (empty($firstName) || empty($lastName) || empty($email) || empty($address) || empty($photo)) {
                 echo '<div class="alert alert-danger mt-3" role="alert">Please fill in all fields.</div>';
             } else {
-
-                    // Output the form data
-                    echo "First Name: $firstName<br>";
-                    echo "Last Name: $lastName<br>";
-                    echo "Email: $email<br>";
-                    echo "Address: $address<br>";
-                    echo "<img src= $photo>";
+                echo '
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                        <p><strong>First Name:</strong> '.$firstName.'</p>
+                            <p><strong>Last Name:</strong> '.$lastName.'</p>
+                            <p><strong>Email:</strong> '.$email.'</p>
+                            <p><strong>Address:</strong> '.$address.'</p>
+                            
+                        </div>
+                        <div class="col-md-6">
+                        <img src="'.$photo.'" alt="Photo" >
+                        </div>
+                    </div>
+                </div>';
             }
         }
     ?>
