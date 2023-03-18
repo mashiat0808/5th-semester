@@ -1,19 +1,12 @@
 public class Main {
     public static void main(String[] args) {
+        ConcreteSubject concreteSubject = new ConcreteSubject("test.txt");
+        ConcreteObserver observer1 = new ConcreteObserver("Observer 1", concreteSubject);
+        ConcreteObserver observer2 = new ConcreteObserver("Observer 2", concreteSubject);
 
-        ConcreteSubject subject=new ConcreteSubject("observe.txt", ".");
+        concreteSubject.register(observer1);
+        concreteSubject.register(observer2);
 
-        ConcreteObserver observer1=new ConcreteObserver("1");
-        ConcreteObserver observer2=new ConcreteObserver("2");
-
-        subject.attach(observer1);
-        subject.attach(observer2);
-
-        try{
-            subject.getUpdate();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-
+        concreteSubject.monitorFile();
     }
 }

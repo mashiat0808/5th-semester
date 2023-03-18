@@ -1,20 +1,21 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Subject {
-    private List<Observer> observers=new ArrayList<>();
 
-    public void attach(Observer observer){
-        observers.add(observer);
-    }
-    public void detach(Observer observer){
-        observers.remove(observer);
-    }
+    abstract class Subject {
+        private List<Observer> registeredObservers = new ArrayList<Observer>();
 
-    public void notify(String fileName, String changeType, String changeTime){
-        for(Observer observer:observers){
-            System.out.println("Observer list");
-            observer.Update(fileName, changeType, changeTime);
+        public void register(Observer observer) {
+            registeredObservers.add(observer);
+        }
+
+        public void unregister(Observer observer) {
+            registeredObservers.remove(observer);
+        }
+
+        public void notifyObservers() {
+            for (Observer observer : registeredObservers) {
+                observer.update();
+            }
         }
     }
-}

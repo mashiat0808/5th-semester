@@ -1,12 +1,16 @@
-public class ConcreteObserver extends Observer{
-    private String observerName;
+import java.io.File;
+import java.util.Date;
 
-    public ConcreteObserver(String observerName){
-        this.observerName=observerName;
+class ConcreteObserver implements Observer {
+    private String observerName;
+    private ConcreteSubject concreteSubject;
+
+    public ConcreteObserver(String observerName, ConcreteSubject concreteSubject) {
+        this.observerName = observerName;
+        this.concreteSubject = concreteSubject;
     }
-    @Override
-    public void Update(String fileName, String changeType, String changeTime){
-        System.out.print("Observer: " +observerName);
-        System.out.println(" The file: "+fileName+" is changed whose type: "+changeType+" and time: "+changeTime);
+
+    public void update() {
+        System.out.println(observerName + " notified: File " + concreteSubject.filePath + " has been modified at " + new Date(concreteSubject.fileLastModified));
     }
 }

@@ -1,40 +1,29 @@
-import java.io.IOException;
-import java.nio.file.*;
+import java.io.File;
 import java.util.Date;
 
-public class ConcreteSubject extends Subject{
-    private String fileName;
-    private String path;
+class ConcreteSubject extends Subject {
+    private String filePath;
+    private long fileLastModified;
 
-    public ConcreteSubject(String fileName, String path){
-        this.fileName=fileName;
-        this.path=path;
+    public ConcreteSubject(String filePath) {
+        this.filePath = filePath;
+        this.fileLastModified = new File(filePath).lastModified();
     }
-    public void getUpdate() throws IOException, InterruptedException {
-        WatchService watchService= FileSystems.getDefault().newWatchService();
-        Path dirPath= Paths.get(path);
-        System.out.println(dirPath);
-        dirPath.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
 
-        while(true){
-            WatchKey key=watchService.take();
-
-            for(WatchEvent<?> event: key.pollEvents()){
-                String eventFileName = event.context().toString();
-
-                if(eventFileName.equals(fileName)){
-                    String changeType=event.kind().name();
-                    String changeTime=new Date().toString();
-
-                    //notify observer
-                    notify(fileName, changeType, changeTime);
-                }
+    public void monitorFile() {
+        while (true) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
 
-            boolean valid=key.reset();
+            File file = new File(filePath);
+            long newFileLastModified = file.lastModified();
 
-            if(!valid){
-                break;
+            if (newFileLastModified != fileLastModified) {
+                fileLastModified = newFileLastModified;
+                notifyObservers();
             }
         }
     }
